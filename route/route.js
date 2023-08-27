@@ -87,13 +87,13 @@ const getdata = async (_id) => {
 
              try{
                 const {email,password,categories} = req.body;
-                const check = await userSchema.findOne({email:email});
-                console.log(check);
-                if(check!==null){
-                  return res.status(200).json("User already exists");
-                }
+                // const check = await userSchema.findOne({email:email});
+                // console.log(check);
+                // if(check!==null){
+                //   return res.status(200).json("User already exists");
+                // }
                 
-                else{
+                // else{
 
                   const user = new userSchema({
                     email,
@@ -103,7 +103,7 @@ const getdata = async (_id) => {
                   await user.save();
                   console.log(user)
                   res.status(200).json(user);
-                }
+                // }
               
              }
               catch(error){
